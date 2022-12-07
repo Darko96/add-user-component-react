@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Button from "./UI/Button";
-import Modal from "./Modal/Modal";
-import Card from "./UI/Card";
+import Button from "../UI/Button";
+import Modal from "../Modal/Modal";
+import Card from "../UI/Card";
 import styles from "./AddUser.module.css";
 
 const AddUser = (props) => {
@@ -29,7 +29,7 @@ const AddUser = (props) => {
       return;
     }
 
-    if (age.trim() < 1) {
+    if (+age < 1) {
       setIsEmpty(true);
       setError("Please enter a valid age (> 0).");
       return;
@@ -52,10 +52,15 @@ const AddUser = (props) => {
         <Modal message={errorMsg} onClick={closeModalHandler}></Modal>
       )}
       <form onSubmit={submitNewUser}>
-        <label>Username</label>
-        <input value={username} onChange={addUserHandler} />
-        <label>Age(Years)</label>
-        <input value={age} onChange={addAgeHandler} />
+        <label htmlFor="username">Username</label>
+        <input
+          id="username"
+          type="text"
+          value={username}
+          onChange={addUserHandler}
+        />
+        <label htmlFor="age">Age(Years)</label>
+        <input id="age" type="number" value={age} onChange={addAgeHandler} />
         <Button type="submit">Add User</Button>
       </form>
     </Card>

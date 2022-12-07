@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import AddUser from "./Components/AddUser";
-import AddUserList from "./Components/AddUserList";
-import Card from "./Components/UI/Card";
+import AddUser from "./Components/Users/AddUser";
+import AddUserList from "./Components/Users/AddUserList";
+// import Card from "./Components/UI/Card";
 
 const App = () => {
   const [users, setUsers] = useState([
