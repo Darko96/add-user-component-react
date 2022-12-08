@@ -21,8 +21,6 @@ const AddUser = (props) => {
   const submitNewUser = (event) => {
     event.preventDefault();
 
-    const newUser = { username: username, age: age };
-
     if (username.trim().length === 0 || age.trim().length === 0) {
       setIsEmpty(true);
       setError("Please enter a valid name and age (non-empty values).");
@@ -35,7 +33,7 @@ const AddUser = (props) => {
       return;
     }
 
-    props.onAddNewUser(newUser);
+    props.onAddNewUser(username, age);
 
     setUsername("");
     setAge("");

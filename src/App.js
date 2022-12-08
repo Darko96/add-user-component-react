@@ -4,19 +4,14 @@ import AddUserList from "./Components/Users/AddUserList";
 // import Card from "./Components/UI/Card";
 
 const App = () => {
-  const [users, setUsers] = useState([
-    { id: "1", username: "Darko", age: "23" },
-  ]);
+  const [users, setUsers] = useState([]);
 
-  const AddNewUser = (enteredUser) => {
+  const AddNewUser = (userN, age) => {
     setUsers((prevUsers) => {
-      const updatedUsers = [...prevUsers];
-      updatedUsers.unshift({
-        id: Math.random().toString(),
-        username: enteredUser.username,
-        age: enteredUser.age,
-      });
-      return updatedUsers;
+      return [
+        ...prevUsers,
+        { id: Math.random().toString(), username: userN, age: age },
+      ];
     });
   };
 
